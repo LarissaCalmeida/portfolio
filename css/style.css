@@ -6,10 +6,22 @@
     list-style: none;
     font-family: Poppins, 'sans-serif';
     color: #EEE;
+    scroll-behavior: smooth;
 }
 
 .containerHeader {
-    background-color: #232931;
+    background: #0E0E0E;
+}
+
+.containerHeader::before {
+    content: " ";
+    background: url('/assets/bg-header.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    height: 100vh;
+    position: absolute;
+    inset: 0;
 }
 
 .navbar {
@@ -19,10 +31,9 @@
 }
 
 .containerHeader .logo {
-    
     font-style: normal;
     font-weight: 600;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 54px;
     color: #EEE;
     text-decoration: none;
@@ -60,41 +71,43 @@
 }
 
 .content-header {
-    background: url('/assets/bg-header.gif') no-repeat;
-    background-size: cover;
     height: 92vh;
     position: relative;
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.content-header::after {
-    content: " ";
-    height: 92vh;
-    position: absolute;
-    inset: 0;
-    background: rgba(35, 41, 49, 0.74);
+.content-header .text-title {
+    font-family: Prompt, sans-serif;
+    font-size: 2rem;
 }
 
 .content-header h1 {
-    font-family: Poppins;
+    font-family: Prompt, sans-serif;
     font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 72px;
+    font-weight: 500;
+    margin-top: 20px;
+    font-size: 2.5rem;
     text-align: center;
-
-    z-index: 10;
 
     color: #EEEEEE;
 }
 
+.content-header .text-description {
+    font-family: Prompt, sans-serif;
+    font-weight: 300;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 350px;
+}
+
 .content-header a {
     z-index: 10;
-    color: #4ECCA3;
+    color: #FFF;
     text-decoration: none;
     text-transform: uppercase;
 
@@ -104,12 +117,9 @@
 
     text-align: center;
 
-    color: #4ECCA3;
-
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 2rem;
     border: 1px solid #4ECCA3;
-    border-radius: 10px;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     transition: all .3s;
 }
 
@@ -121,8 +131,9 @@
 
 .about {
     /* width: 100vw; */
-    background: #232931;
+    background: #121212;
     padding: 4rem 0;
+    height: 100vh;
 }
 
 .about img {
@@ -158,14 +169,22 @@
     width: 200px;
 }
 
-.description {
-    font-size: 24px;
+.about .description {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+.about .description:not(:last-child) {
     margin-top: 4rem;
 }
 
 .container-project {
-    background: #393E46;
+    background: #0E0E0E;
     padding: 8rem 0;
+}
+
+.container-stack {
+    min-height: 100vh;
 }
 
 .container-project .subtitle,
@@ -180,7 +199,7 @@
 .container-project .subtitle h2::after {
     content: "PORTFÓLIO";
     position: absolute;
-    color: #464B53;
+    color: #121212;
     z-index: 1;
     font-size: 152px;
     font-weight: 600;
@@ -219,7 +238,7 @@
 
 .container-project .project .row div {
     height: 400px;
-    background-color: #232931;
+    background-color: #121212;
     /* gap: 2rem; */
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     padding:0;
@@ -232,7 +251,7 @@
 }
 
 .container-stack {
-    background: #232931;
+    background: #121212;
     padding: 8rem 0;
 }
 
@@ -258,7 +277,7 @@
 
 .container-stack .progress-stack::after {
     content: "";
-    background: #00ADB5;
+    background: #4ECCA3;
     
     height: 10px;
     border-radius: 8px;
@@ -300,7 +319,7 @@
 
 
 .container-contact {
-    background: #393E46;
+    background: #0E0E0E;
     padding: 8rem 0;
 }
 
@@ -345,7 +364,7 @@
     height: 70px;
     width: 100%;
     padding: 0 2rem;
-    background: #232931;
+    background: #121212;
     outline: none;
     border: none;
     margin-bottom: 2rem;
@@ -360,7 +379,7 @@
     height: 200px;
     width: 100%;
     padding: 2rem;
-    background: #232931;
+    background: #121212;
     outline: none;
     border: none;
     resize: none;
@@ -384,6 +403,7 @@
     margin-top: 1.5rem;
     transition: all .3s;
     background: none;
+    width: 100%;
 }
 
 @media screen and (max-width: 1468px ){
