@@ -12,7 +12,7 @@ const Navbar = ({ id }: any) => {
         <nav>
           <ul>
             <li>
-              <Link href="#top">Home</Link>
+              <Link href="/#top">Home</Link>
             </li>
             <li>
               <Link href="#about-me">Sobre mim</Link>

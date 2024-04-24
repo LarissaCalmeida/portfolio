@@ -294,42 +294,6 @@ export const SectionProjects = styled.section`
       bottom: -8rem;
       right: -5rem;
     }
-
-    .project {
-      width: 384px;
-      height: 344px;
-      padding: 24px;
-      background-color: ${(props) => props.theme.colors.background_light};
-      border-radius: 16px;
-      @media screen and (max-width: 416px) {
-        width: 90%;
-
-        img {
-          width: 100%;
-        }
-      }
-
-      .head {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-top: 1rem;
-
-        span {
-          font: ${(props) => props.theme.fonts.period_project};
-        }
-      }
-
-      h3 {
-        font: ${(props) => props.theme.fonts.title_project};
-        margin-top: 0.5rem;
-      }
-
-      p {
-        font: ${(props) => props.theme.fonts.paragraph};
-      }
-    }
   }
 `;
 
@@ -415,7 +379,7 @@ export const SectionContactMe = styled.section`
       gap: 1rem;
 
       input {
-        height: 70px;
+        height: 48px;
         padding: 1rem;
         border-radius: 8px;
         background-color: ${(props) => props.theme.colors.background};
@@ -478,49 +442,6 @@ export const SectionContactMe = styled.section`
 
     .contact {
       width: 100% !important;
-    }
-  }
-`;
-
-export const Footer = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5rem;
-  width: 100%;
-  padding: 2rem 0;
-
-  .container {
-    display: flex;
-    max-width: 1280px;
-    gap: 2rem;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    @media screen and (max-width: 1290px) {
-      width: 90%;
-    }
-
-    @media screen and (max-width: 416px) {
-      justify-content: center;
-    }
-
-    span {
-      font: ${(props) => props.theme.fonts.period_project};
-    }
-
-    ul {
-      display: flex;
-      gap: 2rem;
-      li {
-        a {
-          color: #eee;
-          font: ${(props) => props.theme.fonts.period_project};
-        }
-        img {
-          margin-left: 1rem;
-        }
-      }
     }
   }
 `;

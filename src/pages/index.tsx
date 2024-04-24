@@ -1,15 +1,17 @@
+import BoxProject from "@/components/BoxProject";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import {
   Container,
   ContainerImageHeader,
   ContainerSocialMediaHeader,
   ContainerTextHeader,
-  Footer,
   Header,
   SectionAboutMe,
   SectionContactMe,
   SectionProjects,
-} from "@/styles/home/styles";
+} from "@/styles/home";
+import Link from "next/link";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 export default function Home() {
@@ -23,21 +25,6 @@ export default function Home() {
       <Container>
         <Navbar id="top" />
         <Header>
-          {/* <ContainerSocialMediaHeader>
-            <div className="icons">
-              <a href="">
-                <img src="/github.svg" alt="" />
-              </a>
-              <a href="">
-                <img src="/instagram.svg" alt="" />
-              </a>
-              <a href="">
-                <img src="/linkedin.svg" alt="" />
-              </a>
-            </div>
-            <div className="line"></div>
-            <span className="text">Siga-me</span>
-          </ContainerSocialMediaHeader> */}
           <div className="wrapper">
             {" "}
             <ContainerTextHeader>
@@ -59,12 +46,12 @@ export default function Home() {
                 mais, trago habilidades diversificadas para criar soluções
                 robustas e intuitivas.
               </p>
-              <a href="#contact">
+              <Link href="#contact">
                 <button className="button">
                   Entrar em contato
                   <img src="/arrow_btn.svg" alt="" />
                 </button>
-              </a>
+              </Link>
             </ContainerTextHeader>
             <ContainerImageHeader>
               <img src="/bro.png" alt="" />
@@ -100,12 +87,12 @@ export default function Home() {
                 online, otimizar processos e impulsionar o sucesso digital.
               </p>
 
-              <a href="#contact">
+              <Link href="#contact">
                 <button className="button">
                   Entrar em contato
                   <img src="/arrow_btn.svg" alt="" />
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </SectionAboutMe>
@@ -124,48 +111,36 @@ export default function Home() {
                 alt=""
                 className="star_bottom"
               />
-              <div className="project">
-                <img src="/projects/fight.png" alt="" />
-                <div className="head">
-                  <span>Jul - Dec 2022</span>
-                  <div className="techs">
-                    <img src="/Javascript.svg" alt="" />
-                  </div>
-                </div>
 
-                <h3>DevLinks</h3>
-                <p>A link agragator for social media.</p>
-              </div>
-              <div className="project">
-                <img src="/projects/fight.png" alt="" />
-                <div className="head">
-                  <span>Jul - Dec 2022</span>
-                  <div className="techs">
-                    <img src="/Javascript.svg" alt="" />
-                  </div>
-                </div>
-
-                <h3>DevLinks</h3>
-                <p>A link agragator for social media.</p>
-              </div>
-              <div className="project">
-                <img src="/projects/fight.png" alt="" />
-                <div className="head">
-                  <span>Jul - Dec 2022</span>
-                  <div className="techs">
-                    <img src="/Javascript.svg" alt="" />
-                  </div>
-                </div>
-
-                <h3>DevLinks</h3>
-                <p>A link agragator for social media.</p>
-              </div>
+              <BoxProject
+                description="Plataforma de gerenciamento de fazenda."
+                image="/projects/eboi.png"
+                name="E-Boi"
+                period="2022 - 2024"
+                techs={[]}
+              />
+              <BoxProject
+                description="Plataforma de gerenciamento de advocacia. Administre seu escritório com mais facilidade."
+                image="/projects/law.png"
+                name="Jupiter - Law"
+                period="2023 - 2024"
+                techs={[]}
+              />
+              <BoxProject
+                description="A samcorp é um site de soluções tecnológicas"
+                image="/projects/samcorp.png"
+                name="SamCorp"
+                period="2023"
+                techs={[""]}
+              />
             </div>
 
-            <button className="button">
-              Veja mais
-              <img src="/arrow_btn.svg" alt="" />
-            </button>
+            <Link href="/projects">
+              <button className="button">
+                Veja mais
+                <img src="/arrow_btn.svg" alt="" />
+              </button>
+            </Link>
           </div>
         </SectionProjects>
         <SectionContactMe id="contact">
@@ -187,27 +162,27 @@ export default function Home() {
               <ul>
                 <li>
                   <img src="/email.svg" alt="" />
-                  <a href="mailto:dev.larissacarvalho@gmail.com">
+                  <Link href="mailto:dev.larissacarvalho@gmail.com">
                     dev.larissacarvalho@gmail.com
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <img src="/telephone.svg" alt="" />
-                  <a href="tel:+5573988684480">+55 (73) 98868-4480</a>
+                  <Link href="tel:+5573988684480">+55 (73) 98868-4480</Link>
                 </li>
               </ul>
 
               <div className="icons">
-                <a href="">
+                <Link href="">
                   <img src="/github_contact.svg" alt="" />
-                </a>
-                <a href="">
+                </Link>
+                <Link href="">
                   <img src="/linkedin_contact.svg" alt="" />
-                </a>
+                </Link>
 
-                <a href="">
+                <Link href="">
                   <img src="/instagram_contact.svg" alt="" />
-                </a>
+                </Link>
               </div>
             </div>
             <form className="form">
@@ -231,28 +206,7 @@ export default function Home() {
           </div>
         </SectionContactMe>
 
-        <Footer>
-          <div className="container">
-            <span>Larissa 2024.</span>
-
-            <ul>
-              <li>
-                <a href="">GitHub</a>
-              </li>
-              <li>
-                <a href="">LinkedIn</a>
-              </li>
-              <li>
-                <a href="">Instagram</a>
-              </li>
-              <li>
-                <a href="#top">
-                  <img src="/arrow_footer.svg" alt="" />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </Footer>
+        <Footer />
       </Container>
     </>
   );
