@@ -3,10 +3,18 @@ import Navbar from "@/components/Navbar";
 import { Container, Main } from "@/styles/projects";
 import projects from "./api/projects.json";
 import BoxProject from "@/components/BoxProject";
+import Head from "next/head";
 
 export default function Project() {
   return (
     <Container>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Kalam&family=Poppins&display=swap"
+          rel="stylesheet"
+        />
+        <title>Portfólio | Todos Projetos</title>
+      </Head>
       <Navbar id="top" />
       <Main>
         <h2 className="title">Projetos</h2>
@@ -22,6 +30,7 @@ export default function Project() {
                 period={project.period}
                 techs={[]}
                 key={index}
+                index={index.toString()}
               />
             );
           })}

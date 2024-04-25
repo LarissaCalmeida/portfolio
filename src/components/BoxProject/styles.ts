@@ -32,15 +32,18 @@ export const Container = styled.div`
 
     span {
       font: ${(props) => props.theme.fonts.period_project};
+      color: #f5f6f6;
     }
   }
 
   h3 {
     font: ${(props) => props.theme.fonts.title_project};
     margin-top: 0.5rem;
+    color: #f5f6f6;
   }
 
   p {
     font: ${(props) => props.theme.fonts.paragraph};
+    color: #f5f6f6;
   }
 `;

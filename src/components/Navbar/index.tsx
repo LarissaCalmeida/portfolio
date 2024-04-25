@@ -15,13 +15,13 @@ const Navbar = ({ id }: any) => {
               <Link href="/#top">Home</Link>
             </li>
             <li>
-              <Link href="#about-me">Sobre mim</Link>
+              <Link href="/#about-me">Sobre mim</Link>
             </li>
             <li>
-              <Link href="#projects">Projetos</Link>
+              <Link href="/#projects">Projetos</Link>
             </li>
             <li>
-              <Link href="#contact">Contatos</Link>
+              <Link href="/#contact">Contatos</Link>
             </li>
           </ul>
         </nav>
@@ -44,28 +44,28 @@ const Navbar = ({ id }: any) => {
                 setIsActive((prev) => !prev);
               }}
             >
-              <Link href="#top">Home</Link>
+              <Link href="/#top">Home</Link>
             </li>
             <li
               onClick={() => {
                 setIsActive((prev) => !prev);
               }}
             >
-              <Link href="#about-me">Sobre mim</Link>
+              <Link href="/#about-me">Sobre mim</Link>
             </li>
             <li
               onClick={() => {
                 setIsActive((prev) => !prev);
               }}
             >
-              <Link href="#projects">Projetos</Link>
+              <Link href="/#projects">Projetos</Link>
             </li>
             <li
               onClick={() => {
                 setIsActive((prev) => !prev);
               }}
             >
-              <Link href="#contact">Contatos</Link>
+              <Link href="/#contact">Contatos</Link>
             </li>
           </ul>
         </div>

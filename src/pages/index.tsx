@@ -11,6 +11,7 @@ import {
   SectionContactMe,
   SectionProjects,
 } from "@/styles/home";
+import Head from "next/head";
 import Link from "next/link";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
@@ -23,6 +24,13 @@ export default function Home() {
   return (
     <>
       <Container>
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Kalam&family=Poppins&display=swap"
+            rel="stylesheet"
+          />
+          <title>Portfólio</title>
+        </Head>
         <Navbar id="top" />
         <Header>
           <div className="wrapper">
@@ -118,6 +126,7 @@ export default function Home() {
                 name="E-Boi"
                 period="2022 - 2024"
                 techs={[]}
+                index="4"
               />
               <BoxProject
                 description="Plataforma de gerenciamento de advocacia. Administre seu escritório com mais facilidade."
@@ -125,6 +134,7 @@ export default function Home() {
                 name="Jupiter - Law"
                 period="2023 - 2024"
                 techs={[]}
+                index="6"
               />
               <BoxProject
                 description="A samcorp é um site de soluções tecnológicas"
@@ -132,6 +142,7 @@ export default function Home() {
                 name="SamCorp"
                 period="2023"
                 techs={[""]}
+                index="14"
               />
             </div>
 

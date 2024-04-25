@@ -27,6 +27,7 @@ const Theme = {
     paragraph: "normal normal 400 16px/24px Heebo, sans-serif",
     period_project: "normal normal 400 14px/24px Heebo, sans-serif",
     button: "normal normal 500 16px/24px Heebo, sans-serif",
+
     hs: "normal normal 400 40px/56px Kalam, sans-serif",
     section_title: "normal normal 400 16px/16px Kalam, sans-serif",
   },
