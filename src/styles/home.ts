@@ -103,6 +103,12 @@ export const ContainerTextHeader = styled.div`
     margin-bottom: 2rem;
   }
 
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
   .button {
     cursor: pointer;
     display: flex;
@@ -110,13 +116,24 @@ export const ContainerTextHeader = styled.div`
     gap: 1rem;
     padding: 0.8rem 2rem;
     border-radius: 8px;
-    background-color: ${(props) => props.theme.colors.button_primary};
     font: ${(props) => props.theme.fonts.button};
     color: #fff;
     transition: all 0.3s ease-in-out;
+  }
+
+  .button.primary {
+    background-color: ${(props) => props.theme.colors.button_primary};
 
     &:hover {
       background-color: ${(props) => props.theme.colors.button_primary_hover};
+    }
+  }
+
+  .button.secondary {
+    background-color: ${(props) => props.theme.colors.button_secondary};
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.button_secondary_hover};
     }
   }
 `;
@@ -384,10 +401,12 @@ export const SectionContactMe = styled.section`
         border-radius: 8px;
         background-color: ${(props) => props.theme.colors.background};
         border: none;
+        color: #eeeeee;
+        font-family: "Poppins", sans-serif;
 
         &::placeholder {
-          font-size: 18px;
           color: #eeeeee;
+          font-size: 18px;
           font-family: "Poppins", sans-serif;
         }
       }
@@ -399,6 +418,8 @@ export const SectionContactMe = styled.section`
         background-color: ${(props) => props.theme.colors.background};
         border: none;
         resize: none;
+        color: #eeeeee;
+        font-family: "Poppins", sans-serif;
 
         &::placeholder {
           font-size: 18px;
@@ -443,5 +464,14 @@ export const SectionContactMe = styled.section`
     .contact {
       width: 100% !important;
     }
+  }
+
+  .messageError {
+    font: ${(props) => props.theme.fonts.period_project};
+    color: red;
+  }
+  .messageSuccess {
+    font: ${(props) => props.theme.fonts.period_project};
+    color: ${(props) => props.theme.colors.font_secondary};
   }
 `;

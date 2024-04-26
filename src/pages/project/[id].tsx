@@ -59,7 +59,7 @@ export default function Page(props: IProps) {
             <p className="resume">{props.project.resume}</p>
           </div>
         </div>
-        {props.project.link_demo && props.project.link_github && (
+        {(props.project.link_demo || props.project.link_github) && (
           <div className="links">
             <h3 className="title">Dê uma olhada neste projeto</h3>
             {props.project.link_demo && (

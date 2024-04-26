@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "14.0.2",
+    "nodemailer": "^6.9.13",
     "react": "^18",
     "react-dom": "^18",
     "react-simple-typewriter": "^5.0.1",

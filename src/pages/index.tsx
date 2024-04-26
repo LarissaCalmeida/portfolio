@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import {
   Container,
   ContainerImageHeader,
-  ContainerSocialMediaHeader,
   ContainerTextHeader,
   Header,
   SectionAboutMe,
@@ -13,6 +12,7 @@ import {
 } from "@/styles/home";
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 export default function Home() {
@@ -20,6 +20,48 @@ export default function Home() {
     words: ["I'm Larissa Carvalho", "I'm Full-Stack", "I'm Developer"],
     loop: true,
   });
+
+  const [fieldFormContact, setFieldFormContact] = useState<{
+    name: string;
+    email: string;
+    message: string;
+  }>({ name: "", email: "", message: "" });
+  const [statusMessageSend, setStatusMessageSend] = useState({
+    success: false,
+    error: false,
+  });
+
+  async function handleSubmit(event: any) {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(fieldFormContact),
+      });
+
+      if (!response.ok) {
+        setStatusMessageSend({
+          ...statusMessageSend,
+          error: true,
+          success: false,
+        });
+        // throw new Error(`response status: ${response.status}`);
+      }
+      const responseData = await response.json();
+      setStatusMessageSend({
+        ...statusMessageSend,
+        error: false,
+        success: true,
+      });
+    } catch (err) {
+      console.error(err);
+      alert("Error, please try resubmitting the form");
+    }
+  }
 
   return (
     <>
@@ -54,12 +96,21 @@ export default function Home() {
                 mais, trago habilidades diversificadas para criar soluções
                 robustas e intuitivas.
               </p>
-              <Link href="#contact">
-                <button className="button">
-                  Entrar em contato
-                  <img src="/arrow_btn.svg" alt="" />
-                </button>
-              </Link>
+
+              <div className="buttons">
+                <Link href="https://drive.usercontent.google.com/u/0/uc?id=1W5N7Ir8yVAMurebuBp_BGnjMsN1Y_sal&export=download">
+                  <button className="button secondary">
+                    <img src="/ReadCvLogo.svg" alt="" />
+                    Meu CV
+                  </button>
+                </Link>
+                <Link href="#contact">
+                  <button className="button primary">
+                    Entrar em contato
+                    <img src="/arrow_btn.svg" alt="" />
+                  </button>
+                </Link>
+              </div>
             </ContainerTextHeader>
             <ContainerImageHeader>
               <img src="/bro.png" alt="" />
@@ -184,35 +235,76 @@ export default function Home() {
               </ul>
 
               <div className="icons">
-                <Link href="">
+                <Link href="https://github.com/LarissaCalmeida">
                   <img src="/github_contact.svg" alt="" />
                 </Link>
-                <Link href="">
+                <Link href="https://www.linkedin.com/in/larissa-calmeida/">
                   <img src="/linkedin_contact.svg" alt="" />
                 </Link>
 
-                <Link href="">
+                <Link href="https://www.instagram.com/lari.code/">
                   <img src="/instagram_contact.svg" alt="" />
                 </Link>
               </div>
             </div>
-            <form className="form">
-              <input type="text" name="name" id="name" placeholder="Nome" />
+            <form className="form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Nome"
+                required
+                value={fieldFormContact.name}
+                onChange={(e) => {
+                  setFieldFormContact({
+                    ...fieldFormContact,
+                    name: e.target.value,
+                  });
+                }}
+              />
               <input
                 type="email"
                 name="email"
                 id="email"
                 placeholder="E-mail"
+                required
+                value={fieldFormContact.email}
+                onChange={(e) => {
+                  setFieldFormContact({
+                    ...fieldFormContact,
+                    email: e.target.value,
+                  });
+                }}
               />
               <textarea
                 name="message"
                 id="message"
                 placeholder="Sua mensagem"
+                required
+                value={fieldFormContact.message}
+                onChange={(e) => {
+                  setFieldFormContact({
+                    ...fieldFormContact,
+                    message: e.target.value,
+                  });
+                }}
               />
-              <button className="button">
+              <button type="submit" className="button">
                 Me mande uma mensagem
                 <img src="/arrow_btn.svg" alt="" />
               </button>
+
+              {statusMessageSend.error && (
+                <span className="messageError">
+                  Ops, não foi possível enviar o E-mail. Tente novamente mais
+                  tarde.
+                </span>
+              )}
+              {statusMessageSend.success && (
+                <span className="messageSuccess">
+                  Mensagem enviada com sucesso!
+                </span>
+              )}
             </form>
           </div>
         </SectionContactMe>

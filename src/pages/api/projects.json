@@ -157,7 +157,7 @@
     "background": "/projects/bg_portal_egressos.png",
     "role": "Front-End",
     "team": "Ellison - Back-End",
-    "resume": "Para gerenciar o projeto utilizamos o framework Scrum com sprints semanais. Neste projeto atuei como desenvolvedora Front-end, desenvolvendo todo o projeto e animações.\n\nNão foi implementado o back-end, tendo apenas a pré visualização do site sem integração no vercel.",
+    "resume": "O Programa de Egressos é uma plataforma para acompanhar a trajetória profissional dos ex-alunos e ajudar a identificar eventuais gaps no programa de formação oferecido pela instituição de ensino. Promover eventos e/ou notificar a comunidade acadêmica oportunidade de emprego e projetos de extensão dentro da instituição.\n\nPara gerenciar o projeto utilizamos o framework Scrum com sprints semanais. Neste projeto atuei como desenvolvedora Front-end, desenvolvendo todo o projeto e animações.\n\nNão foi implementado o back-end, tendo apenas a pré visualização do site sem integração no vercel.",
     "link_demo": "https://front-programa-egressos.vercel.app/",
     "link_github": "https://github.com/LarissaCalmeida/Front-ProgramaEgressos"
   },

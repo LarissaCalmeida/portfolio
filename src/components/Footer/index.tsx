@@ -5,17 +5,26 @@ const Footer = () => {
   return (
     <Container>
       <div className="container">
-        <span>Larissa 2024.</span>
+        <span>Feito com bastante 💙 e um pouquin de ☕.</span>
 
         <ul>
           <li>
-            <a href="">GitHub</a>
+            <a href="https://github.com/LarissaCalmeida" target="_blank">
+              GitHub
+            </a>
           </li>
           <li>
-            <a href="">LinkedIn</a>
+            <a
+              href="https://www.linkedin.com/in/larissa-calmeida/"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
           </li>
           <li>
-            <a href="">Instagram</a>
+            <a href="https://www.instagram.com/lari.code/" target="_blank">
+              Instagram
+            </a>
           </li>
           <li>
             <a href="#top">
