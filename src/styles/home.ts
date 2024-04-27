@@ -105,6 +105,8 @@ export const ContainerTextHeader = styled.div`
 
   .buttons {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
   }
