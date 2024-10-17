@@ -25,11 +25,11 @@ const BoxProject = ({
         <img src={image} alt="" />
         <div className="head">
           <span>{period}</span>
-          <div className="techs">
+          {/* <div className="techs">
             {techs.map((imgTech, index) => (
               <img src={imgTech} alt="" key={index} />
             ))}
-          </div>
+          </div> */}
         </div>
 
         <h3>{name}</h3>

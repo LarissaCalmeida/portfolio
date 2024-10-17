@@ -13,6 +13,7 @@ import {
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 export default function Home() {
@@ -26,10 +27,6 @@ export default function Home() {
     email: string;
     message: string;
   }>({ name: "", email: "", message: "" });
-  const [statusMessageSend, setStatusMessageSend] = useState({
-    success: false,
-    error: false,
-  });
 
   async function handleSubmit(event: any) {
     event.preventDefault();
@@ -44,22 +41,26 @@ export default function Home() {
       });
 
       if (!response.ok) {
-        setStatusMessageSend({
-          ...statusMessageSend,
-          error: true,
-          success: false,
-        });
+        toast.error(
+          "Ops, não foi possível enviar o e-mail. Tente novamente mais tarde.",
+          {
+            duration: 3000,
+          }
+        );
         // throw new Error(`response status: ${response.status}`);
       }
       const responseData = await response.json();
-      setStatusMessageSend({
-        ...statusMessageSend,
-        error: false,
-        success: true,
+      toast.success("Mensagem enviada com sucesso :)", {
+        duration: 3000,
       });
     } catch (err) {
       console.error(err);
-      alert("Error, please try resubmitting the form");
+      toast.error(
+        "Ops, não foi possível enviar o e-mail. Tente novamente mais tarde.",
+        {
+          duration: 3000,
+        }
+      );
     }
   }
 
@@ -90,7 +91,7 @@ export default function Home() {
               </span>
               <p className="paragraph">
                 Bem-vindo ao meu espaço digital, onde a inovação se encontra com
-                a experiência! Sou uma desenvolvedora full-stack apaixonada, com
+                a experiência! Sou desenvolvedora full-stack apaixonada, com
                 mais de três anos moldando o futuro da web. Especializada em
                 tecnologias como Node.js, React, AngularJS, MongoDB e muito
                 mais, trago habilidades diversificadas para criar soluções
@@ -98,7 +99,7 @@ export default function Home() {
               </p>
 
               <div className="buttons">
-                <Link href="https://drive.usercontent.google.com/u/0/uc?id=1W5N7Ir8yVAMurebuBp_BGnjMsN1Y_sal&export=download">
+                <Link href="https://drive.usercontent.google.com/u/0/uc?id=1vrWCez34ZkXGKM2oE7Zg8e6ryyWtm7df&export=download">
                   <button className="button secondary">
                     <img src="/ReadCvLogo.svg" alt="" />
                     Meu CV
@@ -136,7 +137,7 @@ export default function Home() {
                 Você encontrará projetos que abrangem desde aplicações dinâmicas
                 e escaláveis até experiências de usuário envolventes. Minha
                 proficiência vai além do código, estendendo-se a plataformas
-                como WordPress e Wix, onde transformo conceitos em interfaces
+                como WordPress, onde transformo conceitos em interfaces
                 visualmente impactantes. <br />
                 <br />
                 Seja você um empreendedor ambicioso, uma startup em ascensão ou
@@ -172,7 +173,7 @@ export default function Home() {
               />
 
               <BoxProject
-                description="Plataforma de gerenciamento de fazenda."
+                description="Gerencie sua fazenda e tenha os relatórios na palma de sua mão."
                 image="/projects/eboi.png"
                 name="E-Boi"
                 period="2022 - 2024"
@@ -180,18 +181,18 @@ export default function Home() {
                 index="4"
               />
               <BoxProject
-                description="Plataforma de gerenciamento de advocacia. Administre seu escritório com mais facilidade."
-                image="/projects/law.png"
-                name="Jupiter - Law"
-                period="2023 - 2024"
+                description="Plataforma de gerenciamento de clínicas projetada para otimizar o controle."
+                image="/projects/tagarelas.png"
+                name="Tagarelas"
+                period="2024"
                 techs={[]}
                 index="6"
               />
               <BoxProject
-                description="A samcorp é um site de soluções tecnológicas"
-                image="/projects/samcorp.png"
-                name="SamCorp"
-                period="2023"
+                description="O Construcredi é uma plataforma robusta de gestão empresarial."
+                image="/projects/construcredi.png"
+                name="Construcredi"
+                period="2024"
                 techs={[""]}
                 index="14"
               />
@@ -293,18 +294,6 @@ export default function Home() {
                 Me mande uma mensagem
                 <img src="/arrow_btn.svg" alt="" />
               </button>
-
-              {statusMessageSend.error && (
-                <span className="messageError">
-                  Ops, não foi possível enviar o E-mail. Tente novamente mais
-                  tarde.
-                </span>
-              )}
-              {statusMessageSend.success && (
-                <span className="messageSuccess">
-                  Mensagem enviada com sucesso!
-                </span>
-              )}
             </form>
           </div>
         </SectionContactMe>

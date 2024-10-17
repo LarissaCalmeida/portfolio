@@ -75,7 +75,7 @@ export const Main = styled.main`
     img {
       height: 360px;
       width: 100%;
-      /* object-fit: contain; */
+      object-fit: cover;
       border-radius: 16px 16px 0 0;
 
       @media screen and (max-width: 450px) {

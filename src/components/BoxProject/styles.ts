@@ -46,4 +46,11 @@ export const Container = styled.div`
     font: ${(props) => props.theme.fonts.paragraph};
     color: #f5f6f6;
   }
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+    height: 160px;
+    object-fit: cover;
+  }
 `;
