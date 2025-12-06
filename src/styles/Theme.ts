@@ -3,11 +3,11 @@ const Theme = {
     background: "#0E0E0E",
     background_light: "#121212",
 
-    button_primary: "#8A42DB",
-    button_primary_hover: "#9955E8",
+    button_primary: "#1Fd372",
+    button_primary_hover: "#1Fd372",
 
-    button_secondary: "#413A4F",
-    button_secondary_hover: "#4E4563",
+    button_secondary: "#151414",
+    button_secondary_hover: "#151414",
 
     button_social_media: "#333333",
     button_social_media_hover: "",

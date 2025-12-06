@@ -8,8 +8,12 @@ import {
   Header,
   SectionAboutMe,
   SectionContactMe,
+  SectionCopy,
+  SectionHowWork,
   SectionProjects,
+  SectionServices,
 } from "@/styles/home";
+import { Code, Figma, Loader2, Search, ShieldCheck } from "lucide-react";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
@@ -22,6 +26,8 @@ export default function Home() {
     loop: true,
   });
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [fieldFormContact, setFieldFormContact] = useState<{
     name: string;
     email: string;
@@ -30,6 +36,8 @@ export default function Home() {
 
   async function handleSubmit(event: any) {
     event.preventDefault();
+
+    setIsLoading(true);
 
     try {
       const response = await fetch("/api/contact", {
@@ -48,11 +56,11 @@ export default function Home() {
           }
         );
         // throw new Error(`response status: ${response.status}`);
+      } else {
+        toast.success("Mensagem enviada com sucesso :)", {
+          duration: 3000,
+        });
       }
-      const responseData = await response.json();
-      toast.success("Mensagem enviada com sucesso :)", {
-        duration: 3000,
-      });
     } catch (err) {
       console.error(err);
       toast.error(
@@ -61,6 +69,8 @@ export default function Home() {
           duration: 3000,
         }
       );
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -74,55 +84,55 @@ export default function Home() {
           />
           <title>Portfólio</title>
         </Head>
-        <Navbar id="top" />
         <Header>
-          <div className="wrapper">
+          <Navbar id="top" />
+          <div className="wrapper-header">
             {" "}
             <ContainerTextHeader>
-              <div className="container-title">
-                <h1 className="title">Hi, {text}</h1>
-                <span className="cursor">
-                  <Cursor cursorColor="#fff" />
-                </span>
-              </div>
-
               <span className="subtitle">
-                Desenvolvedora full-stack e entusiasta da inovação
+                DESENVOLVEDORA ESPECIALIZADA EM SOLUÇÕES MODERNAS
               </span>
+              <h1 className="title">
+                Desenvolvo Experiências Digitais que Conectam Marcas ao Futuro
+              </h1>
               <p className="paragraph">
-                Bem-vindo ao meu espaço digital, onde a inovação se encontra com
-                a experiência! Sou desenvolvedora full-stack apaixonada, com
-                mais de três anos moldando o futuro da web. Especializada em
-                tecnologias como Node.js, React, AngularJS, MongoDB e muito
-                mais, trago habilidades diversificadas para criar soluções
-                robustas e intuitivas.
+                Sites, sistemas e interfaces modernas para empresas que exigem
+                alto desempenho.
               </p>
 
               <div className="buttons">
                 <Link href="https://drive.usercontent.google.com/u/0/uc?id=1vrWCez34ZkXGKM2oE7Zg8e6ryyWtm7df&export=download">
                   <button className="button secondary">
                     <img src="/ReadCvLogo.svg" alt="" />
-                    Meu CV
+                    Ver portfolio
                   </button>
                 </Link>
                 <Link href="#contact">
                   <button className="button primary">
-                    Entrar em contato
+                    Falar comigo
                     <img src="/arrow_btn.svg" alt="" />
                   </button>
                 </Link>
               </div>
             </ContainerTextHeader>
             <ContainerImageHeader>
-              <img src="/bro.png" alt="" />
-              <img src="/arrow_header.png" alt="" />
+              {/* <img src="/bro.png" alt="" /> */}
+              {/* <img src="/arrow_header.png" alt="" /> */}
             </ContainerImageHeader>
           </div>
         </Header>
 
+        <SectionCopy>
+          <span>100% focada em entregar a melhor experiência</span>
+          <img src="/star.svg" alt="" className="star_top" />
+          <span>Processo totalmente estruturado e transparente</span>
+          <img src="/star.svg" alt="" className="star_top" />
+          <span>Atendimento personalizado e eficiente</span>
+        </SectionCopy>
+
         <SectionAboutMe id="about-me">
           <div className="container">
-            <img src="/designer_girl.png" alt="" />
+            <img src="/profile.png" alt="" />
 
             <div className="text">
               <div className="icons">
@@ -131,7 +141,7 @@ export default function Home() {
 
               <h2 className="title">About me</h2>
               <span className="subtitle">
-                Transformando Visões em Realidade
+                Paixão pela Transformação Digital
               </span>
               <p className="paragraph">
                 Você encontrará projetos que abrangem desde aplicações dinâmicas
@@ -147,22 +157,128 @@ export default function Home() {
                 online, otimizar processos e impulsionar o sucesso digital.
               </p>
 
-              <Link href="#contact">
+              {/* <Link href="#contact">
                 <button className="button">
                   Entrar em contato
                   <img src="/arrow_btn.svg" alt="" />
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </SectionAboutMe>
+        <SectionServices>
+          <div className="container">
+            <div className="container-title">
+              <h2 className="title">O que eu faço</h2>
+              <span className="subtitle">
+                Serviços que ofereço para o seu negócio
+              </span>
+            </div>
 
+            <div className="container-services">
+              <div>
+                <p className="text">Desenvolvimento Web</p>
+                <span className="number">(001)</span>
+              </div>
+              <div>
+                <span className="number">(002)</span>
+                <p className="text">Otimização SEO</p>
+              </div>
+              <div>
+                <p className="text">Integrações e Automações</p>
+                <span className="number">(003)</span>
+              </div>
+              <div>
+                <span className="number">(004)</span>
+                <p className="text">Sistemas sob medida</p>
+              </div>
+            </div>
+          </div>
+        </SectionServices>
+        <SectionHowWork>
+          {" "}
+          <div className="container">
+            <div className="container-title">
+              <h2 className="title">Como trabalho</h2>
+              <span className="subtitle">
+                Guia passo a passo para o seu negócio
+              </span>
+            </div>
+
+            <div className="container-steps">
+              <div className="container-step">
+                <div className="step">
+                  <div className="icon">
+                    <Search />
+                  </div>
+                  <div>
+                    <h3 className="title-2">Diagnóstico</h3>
+                    <p className="paragraph">
+                      Realizo um diagnóstico detalhado do seu negócio para
+                      entender as necessidades e objetivos.
+                    </p>
+                  </div>
+                </div>
+
+                <img src="/line-right.png" alt="Linha vertical" />
+              </div>
+
+              <div className="container-step">
+                <div className="step">
+                  <div className="icon">
+                    <Figma />
+                  </div>
+                  <div>
+                    <h3 className="title-2">Prototipação</h3>
+                    <p className="paragraph">
+                      Criação de protótipos interativos utilizando o Figma,
+                      focando na experiência do usuário (UX) e interfaces
+                      intuitivas (UI) para garantir facilidade de uso e
+                      eficiência.
+                    </p>
+                  </div>
+                </div>
+                <img src="/line-left.png" alt="Linha vertical" />
+              </div>
+              <div className="container-step">
+                <div className="step">
+                  <div className="icon">
+                    <Code />
+                  </div>
+                  <div>
+                    <h3 className="title-2">Desenvolvimento</h3>
+                    <p className="paragraph">
+                      Desenvolvimento de soluções web modernas e escaláveis,
+                      garantindo performance e usabilidade.
+                    </p>
+                  </div>
+                </div>
+
+                <img src="/line-right.png" alt="Linha vertical" />
+              </div>
+
+              <div className="container-step">
+                <div className="step">
+                  <div className="icon">
+                    <ShieldCheck />
+                  </div>
+                  <div>
+                    <h3 className="title-2">Entrega + Suporte</h3>
+                    <p className="paragraph">
+                      Entrega do projeto com suporte técnico para garantir o
+                      funcionamento adequado e a manutenção contínua do sistema.
+                    </p>
+                  </div>
+                </div>
+                {/* <img src="/line-left.png" alt="Linha vertical" /> */}
+              </div>
+            </div>
+          </div>
+        </SectionHowWork>
         <SectionProjects id="projects">
           <div className="container">
-            <h2 className="title">Projects</h2>
-            <span className="subtitle">
-              Dê uma olhada nos meus projetos em destaque
-            </span>
+            <h2 className="title">Projetos</h2>
+            <span className="subtitle">Projetos em destaque</span>
 
             <div className="projects">
               <img src="/star_project_top.svg" alt="" className="star_top" />
@@ -186,24 +302,17 @@ export default function Home() {
                 name="Tagarelas"
                 period="2024"
                 techs={[]}
-                index="6"
+                index="1"
               />
               <BoxProject
-                description="O Construcredi é uma plataforma robusta de gestão empresarial."
-                image="/projects/construcredi.png"
-                name="Construcredi"
-                period="2024"
-                techs={[""]}
+                description="Landing Page para a Samcorp."
+                image="/projects/samcorp.png"
+                name="Samcorp"
+                period="2023"
+                techs={[]}
                 index="14"
               />
             </div>
-
-            <Link href="/projects">
-              <button className="button">
-                Veja mais
-                <img src="/arrow_btn.svg" alt="" />
-              </button>
-            </Link>
           </div>
         </SectionProjects>
         <SectionContactMe id="contact">
@@ -291,8 +400,12 @@ export default function Home() {
                 }}
               />
               <button type="submit" className="button">
-                Me mande uma mensagem
-                <img src="/arrow_btn.svg" alt="" />
+                {isLoading ? "Enviando..." : "Me mande uma mensagem"}
+                {isLoading ? (
+                  <Loader2 className="loader" />
+                ) : (
+                  <img src="/arrow_btn.svg" alt="" />
+                )}
               </button>
             </form>
           </div>

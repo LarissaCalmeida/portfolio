@@ -20,9 +20,11 @@ const Navbar = ({ id }: any) => {
             <li>
               <Link href="/#projects">Projetos</Link>
             </li>
-            <li>
-              <Link href="/#contact">Contatos</Link>
-            </li>
+            <div className="buttons">
+              <Link href="#contact">
+                <button className="button secondary">Contate-me</button>
+              </Link>
+            </div>
           </ul>
         </nav>
 

@@ -6,15 +6,17 @@ interface IProps {
 
 export const Container = styled.div<IProps>`
   padding: 2rem 2.5rem;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2); */
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   position: relative;
+  background-color: transparent;
 
   .wrapper {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100vw;
@@ -32,6 +34,42 @@ export const Container = styled.div<IProps>`
       color: ${(props) => props.theme.colors.font_primary};
       font: ${(props) => props.theme.fonts.paragraph};
       list-style: none;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font: ${(props) => props.theme.fonts.button};
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .button.primary {
+    background-color: ${(props) => props.theme.colors.button_primary};
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.button_primary_hover};
+    }
+  }
+
+  .button.secondary {
+    background-color: ${(props) => props.theme.colors.button_secondary};
+    border: 1px solid #1e1e21;
+    &:hover {
+      background-color: ${(props) => props.theme.colors.button_secondary_hover};
     }
   }
 
